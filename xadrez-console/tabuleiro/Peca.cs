@@ -26,6 +26,28 @@ namespace tabuleiro
             qteMovimentos++;
         }
 
+        public bool existeMovimentosPossives()
+        {
+            bool[,] mat = movimentosPossiveis();
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    if(mat[i,j] == true)
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
+        }
+
+        public bool podeMoverPara(Posicao pos)
+        {
+            return movimentosPossiveis()[pos.linha, pos.coluna];
+        }
+
         public abstract bool[,] movimentosPossiveis();   //abstract => não possui implementação nesta classe
         
 
